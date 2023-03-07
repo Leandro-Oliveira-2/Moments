@@ -1,0 +1,85 @@
+.example-card {
+  max-width: 400px;
+  margin: auto 0;
+  margin-left: 40%;
+  border-radius: 20px;
+  margin-top: 70px;
+  margin-bottom: 20px;
+  border: 0.8px solid black;
+  background-color: rgb(60, 118, 159);
+}
+.imgCenter{
+  width: 360px;
+  margin-left: 7px;
+
+}
+
+.example-header-image, img {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+  padding: center;
+  border-radius: 20px;
+  background-position: center;
+
+}
+
+
+input {
+  margin: 200px;
+}
+
+
+.BTN1{
+  margin: .5em;
+}
+
+section {
+  color: aliceblue;
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.criticas{
+  margin-right: 120px;
+}
+
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+mat-card-title{
+  color: aliceblue;
+}
+
+mat-card-subtitle{
+  color: aliceblue;
+}
+
+p{
+  color: aliceblue;
+}
