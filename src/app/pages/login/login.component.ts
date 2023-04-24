@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -7,18 +7,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
- btnSignin = document.querySelector("#signin");
- btnSignup = document.querySelector("#signup");
- body = document.querySelector("body");
-  constructor() { }
+
+  @ViewChild('myDiv', { static: true }) myDiv: any;
+
+  constructor(  private elementRef: ElementRef,
+    private renderer: Renderer2
+    ) { }
 
   ngOnInit(): void {
+    this.myDiv = this.elementRef.nativeElement.querySelector('#myDiv');
+    console.log(this.myDiv);
   }
 
   onSignInClick() {
+    console.log(this.myDiv);
+    this.myDiv.className = 'sign-in-js';
+  }
+
+  logar(){
+
+  }
+
+  cadastrar(){
+
   }
 
   onSignUpClick() {
+    console.log(this.myDiv);
+    this.myDiv.className = 'sign-up-js';
   }
 
 }
