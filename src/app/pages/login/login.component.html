@@ -35,24 +35,24 @@
                 </ul>
             </div><!-- social media -->
             <p class="description description-second">Ou use seu Email para se registrar</p>
-            <form class="form">
+            <form [formGroup]="loginForm"  class="form" (ngSubmit)="cadastrar()">
                 <label class="label-input" for="">
                     <i class="far fa-user icon-modify"></i>
-                    <input type="text" placeholder="Nome">
+                    <input type="text" formControlName="nome"  placeholder="Nome">
                 </label>
 
                 <label class="label-input" for="">
                     <i class="far fa-envelope icon-modify"></i>
-                    <input type="email" placeholder="Email">
+                    <input type="email"  formControlName="email"placeholder="Email">
                 </label>
 
                 <label class="label-input" for="">
                     <i class="fas fa-lock icon-modify"></i>
-                    <input type="password" placeholder="Senha">
+                    <input type="password" formControlName ="senha" placeholder="Senha">
                 </label>
 
 
-                <button class="btn btn-second" (click)="cadastrar()">Cadastrar</button>
+                <button class="btn btn-second" type="submit">Cadastrar</button>
             </form>
         </div><!-- second column -->
     </div><!-- first content -->

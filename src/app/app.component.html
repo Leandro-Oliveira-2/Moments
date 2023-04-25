@@ -1,6 +1,6 @@
 <app-messages></app-messages>
-<app-header *ngIf="url != 'http://localhost:4200/login'"></app-header>
+<app-header *ngIf="url == 'http://localhost:4200'"></app-header>
 <main class="container">
   <router-outlet></router-outlet>
 </main>
-<app-footer *ngIf="url != 'http://localhost:4200/login'"></app-footer>
+<app-footer *ngIf="url == 'http://localhost:4200'"></app-footer>
