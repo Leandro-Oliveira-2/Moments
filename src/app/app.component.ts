@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,9 @@ export class AppComponent {
   url = window.location.href;
   title = 'moments';
 
-  OnInit(){
-    console.log(this.url);
+  verificar(){
+    if(this.url == 'http://localhost:4200'){
+      this.url = 'http://localhost:4200/f'
+    }
   }
-
 }

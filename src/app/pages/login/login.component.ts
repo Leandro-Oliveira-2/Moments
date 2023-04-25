@@ -1,6 +1,9 @@
 import { Component, OnInit, ElementRef, Renderer2, ViewChild} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { HostListener } from '@angular/core';
 import { IUser } from 'src/app/interfaces/user';
+import { AlertasService } from 'src/app/services/alerta.service';
 import { userService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,14 +12,17 @@ import { userService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  email:string = '';
   use:IUser = {};
+  sucess:boolean = false;
 
   @ViewChild('myDiv', { static: true }) myDiv: any;
 
   constructor(  private elementRef: ElementRef,
     private renderer: Renderer2,
-    private user: userService
+    private userService: userService,
+    private router: Router,
+    private alertaService: AlertasService
     ) { }
 
   ngOnInit(): void {
@@ -24,11 +30,17 @@ export class LoginComponent implements OnInit {
     console.log(this.myDiv);
   }
 
-  loginForm = new FormGroup({
+  cadastroForm = new FormGroup({
     nome: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     senha: new FormControl('', Validators.required)
   })
+
+  loginForm = new FormGroup({
+    email: new FormControl('', Validators.required),
+    senha: new FormControl('', Validators.required)
+  });
+
 
   onSignInClick() {
     console.log(this.myDiv);
@@ -36,23 +48,59 @@ export class LoginComponent implements OnInit {
   }
 
   logar(){
-
+    this.use.email = this.loginForm.value.email;
+    this.use.senha = this.loginForm.value.senha;
+    console.log(this.use);
+    this.userService.buscarusuario(this.use.email).subscribe((Response)=>{
+      this.use = Response;
+      console.log(this.use)
+      if(this.use.senha == this.loginForm.value.senha ){
+        this.router.navigateByUrl('home').then(()=>{
+          this.alertaService.alertaSucesso("Logado Com Suceso!");
+          window.location.reload();
+        });
+      }else{
+        this.alertaService.alertaErro("Senha Incorreta!");
+      }
+    },(error)=>{
+      if(error.status == 404){
+        this.alertaService.alertaErro("Email não cadastrado!");
+      }
+    })
   }
 
   cadastrar(){
-    this.use.nome = this.loginForm.value.nome;
-    this.use.email = this.loginForm.value.email;
-    this.use.senha = this.loginForm.value.senha;
+    this.use.nome = this.cadastroForm.value.nome;
+    this.use.email = this.cadastroForm.value.email;
+    this.use.senha = this.cadastroForm.value.senha;
 
     console.log(this.use);
-    this.user.criarUser({
-      nome: this.loginForm.value.nome,
-      email: this.loginForm.value.email,
-      senha: this.loginForm.value.senha
+    this.userService.criarUser({
+      nome: this.cadastroForm.value.nome,
+      email: this.cadastroForm.value.email,
+      senha: this.cadastroForm.value.senha
     }).subscribe((Response)=>{
-
+      this.alertaService.alertaSucesso("cadastro feito com Suceso!");
+    },(error)=>{
+      if(error.status == 400 && this.cadastroForm.value.nome == '' ){
+        this.alertaService.alertaErro("Campo nome não preenchido!");
+      }else if(error.status == 400 && this.cadastroForm.value.senha == '' )
+      this.alertaService.alertaErro("Campo senha não preenchido!");
+      else if(error.status == 400 && this.cadastroForm.value.email == '' )
+      this.alertaService.alertaErro("Campo email não preenchido!");
     });
   }
+
+
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event: any) {
+    window.location.reload();
+  }
+
+  @HostListener('window:pushstate', ['$event'])
+  onPushState(event: any) {
+    window.location.reload();
+   }
 
   onSignUpClick() {
     console.log(this.myDiv);

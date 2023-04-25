@@ -13,12 +13,12 @@ export class userService {
 
   constructor(private http: HttpClient) { }
 
-  buscarusuario(email:string){
+  buscarusuario(email:any){
     return this.http.get<IUser>(`${this.api}/${this.endpoint}/${email}`)
   }
 
   getUser(){
-    return this.http.get<IUser>(`${this.api}/${this.endpoint}`)
+    return this.http.get<IUser[]>(`${this.api}/${this.endpoint}`)
   }
 
   criarUser(user: IUser) {
