@@ -1,184 +1,60 @@
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
 
-<mat-card class="example-card" style="margin-left: 8%;">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Para sempre ao seu lado</mat-card-title>
-    <mat-card-subtitle>Diretor: Kaneto Shindô</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image class="imgCenter" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      Professor universitário encontra na estação de trem um filhote de cachorro da raça Akita, conhecida por sua lealdade. O cão passa a acompanhá-lo até a estação de trem e esperar sua volta. Até que um acontecimento inesperado altera sua vida.
-    </p>
-  </mat-card-content>
-  <mat-card-actions class="editando">
-    <button (click)="Redirecionando()">Amei</button>
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+<main>
 
-      <a class="criticas" mat-button href="https://www.omelete.com.br/filmes/criticas/critica-sempre-ao-seu-lado" target="_blank">Criticas</a>
-      <a class="filme" mat-button href="https://gofilmes.me/sempre-ao-seu-lado" target="_blank">Assistir Online</a>
-  </mat-card-actions>
-</mat-card>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Album example</h1>
+        <p class="lead text-muted"></p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Criar um novo album</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+        </p>
+      </div>
+    </div>
+  </section>
 
+  <div class="album py-5 bg-light">
+    <div class="container">
 
-<mat-card class="example-card" style="margin-top: -38.5%; margin-left:37%">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Para sempre ao seu lado</mat-card-title>
-    <mat-card-subtitle>Diretor: Kaneto Shindô</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image class="imgCenter" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      Professor universitário encontra na estação de trem um filhote de cachorro da raça Akita, conhecida por sua lealdade. O cão passa a acompanhá-lo até a estação de trem e esperar sua volta. Até que um acontecimento inesperado altera sua vida.
-    </p>
-  </mat-card-content>
-  <mat-card-actions class="editando">
-    <button (click)="Redirecionando()">Amei</button>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
 
-      <a class="criticas" mat-button href="https://www.omelete.com.br/filmes/criticas/critica-sempre-ao-seu-lado" target="_blank">Criticas</a>
-      <a class="filme" mat-button href="https://gofilmes.me/sempre-ao-seu-lado" target="_blank">Assistir Online</a>
-  </mat-card-actions>
-</mat-card>
-
-<mat-card class="example-card" style="margin-top: -38.5%; margin-left:67%">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Para sempre ao seu lado</mat-card-title>
-    <mat-card-subtitle>Diretor: Kaneto Shindô</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image class="imgCenter" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      Professor universitário encontra na estação de trem um filhote de cachorro da raça Akita, conhecida por sua lealdade. O cão passa a acompanhá-lo até a estação de trem e esperar sua volta. Até que um acontecimento inesperado altera sua vida.
-    </p>
-  </mat-card-content>
-  <mat-card-actions class="editando">
-    <button (click)="Redirecionando()">Amei</button>
-
-      <a class="criticas" mat-button href="https://www.omelete.com.br/filmes/criticas/critica-sempre-ao-seu-lado" target="_blank">Criticas</a>
-      <a class="filme" mat-button href="https://gofilmes.me/sempre-ao-seu-lado" target="_blank">Assistir Online</a>
-  </mat-card-actions>
-</mat-card>
+        <div class="col" *ngFor=" let album of albuns">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="300" src="CriancaSentada.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <div class="card-body" >
+              <ul class="list-unstyled mt-3 mb-4">
+                <li><b>{{album.nome}}</b></li>
+              </ul>
+              <p class="card-text">{{album.descricao}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Visualizar</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Editar</button>
+                </div>
+                <small class="text-muted">{{album.dataCriacao}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
-<mat-card class="example-card" style="margin-left: 8%;">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Para sempre ao seu lado</mat-card-title>
-    <mat-card-subtitle>Diretor: Kaneto Shindô</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image class="imgCenter" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      Professor universitário encontra na estação de trem um filhote de cachorro da raça Akita, conhecida por sua lealdade. O cão passa a acompanhá-lo até a estação de trem e esperar sua volta. Até que um acontecimento inesperado altera sua vida.
-    </p>
-  </mat-card-content>
-  <mat-card-actions class="editando">
-    <button (click)="Redirecionando()">Amei</button>
+      </div>
+    </div>
+  </div>
 
-      <a class="criticas" mat-button href="https://www.omelete.com.br/filmes/criticas/critica-sempre-ao-seu-lado" target="_blank">Criticas</a>
-      <a class="filme" mat-button href="https://gofilmes.me/sempre-ao-seu-lado" target="_blank">Assistir Online</a>
-  </mat-card-actions>
-</mat-card>
-
-
-<mat-card class="example-card" style="margin-top: -38.5%; margin-left:37%">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Para sempre ao seu lado</mat-card-title>
-    <mat-card-subtitle>Diretor: Kaneto Shindô</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image class="imgCenter" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      Professor universitário encontra na estação de trem um filhote de cachorro da raça Akita, conhecida por sua lealdade. O cão passa a acompanhá-lo até a estação de trem e esperar sua volta. Até que um acontecimento inesperado altera sua vida.
-    </p>
-  </mat-card-content>
-  <mat-card-actions class="editando">
-    <button (click)="Redirecionando()">Amei</button>
-
-      <a class="criticas" mat-button href="https://www.omelete.com.br/filmes/criticas/critica-sempre-ao-seu-lado" target="_blank">Criticas</a>
-      <a class="filme" mat-button href="https://gofilmes.me/sempre-ao-seu-lado" target="_blank">Assistir Online</a>
-  </mat-card-actions>
-</mat-card>
-
-<mat-card class="example-card" style="margin-top: -38.5%; margin-left:67%">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Para sempre ao seu lado</mat-card-title>
-    <mat-card-subtitle>Diretor: Kaneto Shindô</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image class="imgCenter" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      Professor universitário encontra na estação de trem um filhote de cachorro da raça Akita, conhecida por sua lealdade. O cão passa a acompanhá-lo até a estação de trem e esperar sua volta. Até que um acontecimento inesperado altera sua vida.
-    </p>
-  </mat-card-content>
-  <mat-card-actions class="editando">
-    <button (click)="Redirecionando()">Amei</button>
-
-      <a class="criticas" mat-button href="https://www.omelete.com.br/filmes/criticas/critica-sempre-ao-seu-lado" target="_blank">Criticas</a>
-      <a class="filme" mat-button href="https://gofilmes.me/sempre-ao-seu-lado" target="_blank">Assistir Online</a>
-  </mat-card-actions>
-</mat-card>
-
-<mat-card class="example-card" style="margin-left: 8%;">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Para sempre ao seu lado</mat-card-title>
-    <mat-card-subtitle>Diretor: Kaneto Shindô</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image class="imgCenter" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      Professor universitário encontra na estação de trem um filhote de cachorro da raça Akita, conhecida por sua lealdade. O cão passa a acompanhá-lo até a estação de trem e esperar sua volta. Até que um acontecimento inesperado altera sua vida.
-    </p>
-  </mat-card-content>
-  <mat-card-actions class="editando">
-    <button (click)="Redirecionando()">Amei</button>
-
-      <a class="criticas" mat-button href="https://www.omelete.com.br/filmes/criticas/critica-sempre-ao-seu-lado" target="_blank">Criticas</a>
-      <a class="filme" mat-button href="https://gofilmes.me/sempre-ao-seu-lado" target="_blank">Assistir Online</a>
-  </mat-card-actions>
-</mat-card>
-
-
-<mat-card class="example-card" style="margin-top: -38.5%; margin-left:37%">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Para sempre ao seu lado</mat-card-title>
-    <mat-card-subtitle>Diretor: Kaneto Shindô</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image class="imgCenter" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      Professor universitário encontra na estação de trem um filhote de cachorro da raça Akita, conhecida por sua lealdade. O cão passa a acompanhá-lo até a estação de trem e esperar sua volta. Até que um acontecimento inesperado altera sua vida.
-    </p>
-  </mat-card-content>
-  <mat-card-actions class="editando">
-    <button (click)="Redirecionando()">Amei</button>
-
-      <a class="criticas" mat-button href="https://www.omelete.com.br/filmes/criticas/critica-sempre-ao-seu-lado" target="_blank">Criticas</a>
-      <a class="filme" mat-button href="https://gofilmes.me/sempre-ao-seu-lado" target="_blank">Assistir Online</a>
-  </mat-card-actions>
-</mat-card>
-
-<mat-card class="example-card" style="margin-top: -38.5%; margin-left:67%">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Para sempre ao seu lado</mat-card-title>
-    <mat-card-subtitle>Diretor: Kaneto Shindô</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image class="imgCenter" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      Professor universitário encontra na estação de trem um filhote de cachorro da raça Akita, conhecida por sua lealdade. O cão passa a acompanhá-lo até a estação de trem e esperar sua volta. Até que um acontecimento inesperado altera sua vida.
-    </p>
-  </mat-card-content>
-  <mat-card-actions class="editando">
-    <button (click)="Redirecionando()">Amei</button>
-
-      <a class="criticas" mat-button href="https://www.omelete.com.br/filmes/criticas/critica-sempre-ao-seu-lado" target="_blank">Criticas</a>
-      <a class="filme" mat-button href="https://gofilmes.me/sempre-ao-seu-lado" target="_blank">Assistir Online</a>
-  </mat-card-actions>
-</mat-card>
+</main>

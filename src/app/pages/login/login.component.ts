@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../../services/local-storage.service';
 import { Component, OnInit, ElementRef, Renderer2, ViewChild} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
     private renderer: Renderer2,
     private userService: userService,
     private router: Router,
-    private alertaService: AlertasService
+    private alertaService: AlertasService,
+    private LocalStorageService: LocalStorageService
     ) { }
 
   ngOnInit(): void {
@@ -53,20 +55,21 @@ export class LoginComponent implements OnInit {
     console.log(this.use);
     this.userService.buscarusuario(this.use.email).subscribe((Response)=>{
       this.use = Response;
-      console.log(this.use)
       if(this.use.senha == this.loginForm.value.senha ){
+        this.LocalStorageService.set('albumId',Response);
         this.router.navigateByUrl('home').then(()=>{
           this.alertaService.alertaSucesso("Logado Com Suceso!");
           window.location.reload();
         });
       }else{
-        this.alertaService.alertaErro("Senha Incorreta!");
+        this.alertaService.alertaErro("Email ou Senha Incorreta!");
       }
     },(error)=>{
       if(error.status == 404){
-        this.alertaService.alertaErro("Email não cadastrado!");
+        this.alertaService.alertaErro("Email ou Senha Incorreta!");
       }
     })
+
   }
 
   cadastrar(){
