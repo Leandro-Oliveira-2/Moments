@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   mdm: String = "";
   albumId: any;
   url = window.location.href;
+  albumPadrao: boolean = false
 
   constructor(
     private albumService: albunService,
@@ -47,6 +48,10 @@ export class HomeComponent implements OnInit {
       console.log(Response)
       this.albuns = Response;
       console.log(this.albumId.album);
+    },(error)=>{
+      if(error.status == 400){
+        this.albumPadrao = true;
+      }
     })
   }
 

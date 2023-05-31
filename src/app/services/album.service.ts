@@ -15,7 +15,7 @@ export class albunService {
   constructor(private http: HttpClient) { }
 
   buscaralbum(albumId:Number){
-    return this.http.get<IAlbum>(`${this.api}/${this.endpoint}?album=${albumId}`)
+    return this.http.get<IAlbum>(`${this.api}/${this.endpoint}/chave/${albumId}`)
   }
 
   getUser(){

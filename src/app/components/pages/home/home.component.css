@@ -7,5 +7,62 @@
 /*# sourceMappingURL=bootstrap.min.css.map */
 
 .img{
-  background-image: url(CriancaDoisAnos.jpg);
+  background-image: url(CriancaSentada.jpg);
 }
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  margin-left: -5%;
+  background-color: #fff;
+  width: 70%;
+  height:100%;
+  border-radius: 12px;
+  box-shadow: 4px 4px 12px #aaaa;
+}
+.card img {
+  display: flex;
+  width: 105%;
+  height:120%;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin-left: -2%;
+}
+.card div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  height: 50%;
+}
+.card h1 {
+  font-size: 1.2rem;
+  margin-top: 5%;
+}
+.card h2 {
+  font-size: .9rem;
+  color: #aaaa;
+}
+.card button {
+  background-color: #2192FF;
+  height: 5vh;
+  border: none;
+  padding: 4px;
+  width: 80%;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-block-end: 5%;
+}
+.card button:hover {
+  background-color: #137de8;
+  cursor: pointer;
+}
+
+
